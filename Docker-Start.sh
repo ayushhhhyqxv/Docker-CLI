@@ -13,6 +13,8 @@ sudo usermod -a -G docker $USER      # All docker conditions given to your user 
 
 docker pull <application-name>       # fetches latest tag of image just like latest version of commit through github
 
+docker build . -t <image-name>       # builds image from dockerfile if docker file present in current directory !
+
 docker run -it --name <container-name> <image-name>:latest   # Command to start or run a container with given Image
 
 # If virtualizing a database app we need to add password while running it 
