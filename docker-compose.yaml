@@ -1,0 +1,18 @@
+version: '3.8'  # docker-version
+services:       # services managed by YAML
+  web:          # any-web-app
+    image: <image-name>:latest
+    container_name: name # add your custom name 
+    ports:
+      - "8080:8080"
+    volumes:
+      -<volume-name>:/app # its place in container 
+  db:           # db-container
+    image: <db-image>
+    container_name: name
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD:'<your-passwd>'
+volumes:
+  <volume-name>:
