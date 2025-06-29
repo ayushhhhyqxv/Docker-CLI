@@ -4,7 +4,11 @@
 
 docker swarm init  # run this command only on leader's server 
 
-# It will give docker token for workers, join these workers using this token
+# It will give docker token for workers, join these workers using this token,else
+
+sudo docker swarm join-token worker
+
+sudo docker swarm leave
 
 docker node ls # shows leaders and workers,availability and status
 
@@ -22,6 +26,27 @@ docker stack deploy -c <compose.yaml-file> <your-stack-name>  #The base command 
 
 docker service create --name <service-name> --replicas 3 --publish 8001:8001 <image-docker-hub-name>:latest
 
-# Replicas are send automatically send on workers depending on there capability
+# Replicas are send automatically send on workers depending on there capability,if manager gets killed then khatam 
+
 # They are also auto-healed
+
+docker service ls # shows active services and replicas
+
+lsof -i :8001  #  represents the ports which are open !
+
+sudo docker info # all info about docker engine and swarm active
+
+# If any of the service gets down in stack we should scale it up from manager !
+
+sudo docker service scale <service-name>=3  # would scale 3 replicas 
+
+# if i want to make changes in running app then do changes in vim then build its image again and change tagname inorder to puh
+# ie the latest image then 
+
+sudo docker service update --image <image-name>:latest <stack-name> 
+
+# service converged message should display ! 
+
+
+
 
