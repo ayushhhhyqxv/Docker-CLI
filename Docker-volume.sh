@@ -20,6 +20,8 @@ sudo apt-get install docker-compose
 
 docker compose up --force-recreate     # will run YAML file 
 
+docker compose up -d --no-deps --build <service-name>  # For Jenkins CI , if i make changes to code while running
+
 docker compose down     # will close all containers at once 
 
 # If we want to push our image on docker we need to first login
