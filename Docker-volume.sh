@@ -18,7 +18,7 @@ sudo apt-get install docker-compose
 
 # We can run multiple containers using docker compose with help of yaml file given as example !
 
-docker compose up       # will run YAML file 
+docker compose up --force-recreate     # will run YAML file 
 
 docker compose down     # will close all containers at once 
 
